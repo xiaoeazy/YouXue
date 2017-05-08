@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ #{copyright}#
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper  namespace="com.huan.ted.yh.cooperativeProject.mapper.CooperativeProjectMapper">
+	<resultMap id="BaseResultMap" type="com.huan.ted.yh.cooperativeProject.dto.Project" >
+		<id column="id" property="id" jdbcType="DECIMAL" />
+		<result column="projectname" property="projectname" jdbcType="VARCHAR" />
+        <result column="projectdate_s" property="projectdateS" jdbcType="DATE" />
+        <result column="projectdate_e" property="projectdateE" jdbcType="DATE" />
+        <result column="project_site" property="projectSite" jdbcType="VARCHAR" />
+        <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR"/>
+        <result column="banner" property="banner" jdbcType="VARCHAR"/>
+        <result column="project_intro" property="projectIntro" jdbcType="VARCHAR" />
+        <result column="project_content" property="projectContent" jdbcType="VARCHAR" />
+	
+	</resultMap>	
+	
+	<sql id="Base_Column_List">
+        projectname, projectdateS,projectdateE, projectSite, thumbnail, banner, projectIntro,projectContent
+    </sql>
+    <select id="queryAll" resultMap="BaseResultMap" parameterType="com.huan.ted.yh.cooperativeProject.dto.Project">
+       SELECT
+		 *
+	  FROM
+		yh_cooperative_project e1 	
+     <where>
+          <if test="projectname != null">
+                and e1.projectname LIKE concat('%', concat(#{projectname,jdbcType=VARCHAR}, '%'))
+          </if>
+      </where>
+    </select>
+
+    
+	
+</mapper>
