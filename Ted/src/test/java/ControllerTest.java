@@ -47,50 +47,50 @@ import com.huan.ted.account.service.impl.RoleServiceImpl;
 @Rollback
 
 public class ControllerTest {
-    @InjectMocks
-    private RoleController roleController;
+//    @InjectMocks
+//    private RoleController roleController;
+//
+//
+//    private MockMvc mockMvc;
+//
+//    @Mock
+//    private RoleServiceImpl roleService;
+//
+//
+//    @Mock
+//    private Validator validator;
+//
+//    @Mock
+//    private MessageSource messageSource;
+//
+//
+//    @Before
+//    public void setup() {
+//        MockitoAnnotations.initMocks(this);
+//        mockMvc = MockMvcBuilders.standaloneSetup(roleController).build();
+//    }
 
-
-    private MockMvc mockMvc;
-
-    @Mock
-    private RoleServiceImpl roleService;
-
-
-    @Mock
-    private Validator validator;
-
-    @Mock
-    private MessageSource messageSource;
-
-
-    @Before
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(roleController).build();
-    }
-
-    @Test
-    public void testGetRoles() throws Exception {
-        List<Role> roleList = new ArrayList<Role>();
-        Role firstRole = new Role();
-        firstRole.setRoleId(1L);
-        roleList.add(firstRole);
-        Role secondRole = new Role();
-        roleList.add(secondRole);
-        when(roleService.select(anyObject(),anyObject(),anyInt(),anyInt())).thenReturn(roleList);
-        int userId = 3;
-
-        //测试get型action
-        mockMvc.perform(
-                get("/sys/role/query"))
-                //.andDo(print())
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.jsonPath("total", is(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("success", is(true)))
-                .andExpect(MockMvcResultMatchers.jsonPath("rows[0].roleId", is(1)));
-    }
+//    @Test
+//    public void testGetRoles() throws Exception {
+//        List<Role> roleList = new ArrayList<Role>();
+//        Role firstRole = new Role();
+//        firstRole.setRoleId(1L);
+//        roleList.add(firstRole);
+//        Role secondRole = new Role();
+//        roleList.add(secondRole);
+//        when(roleService.select(anyObject(),anyObject(),anyInt(),anyInt())).thenReturn(roleList);
+//        int userId = 3;
+//
+//        //测试get型action
+//        mockMvc.perform(
+//                get("/sys/role/query"))
+//                //.andDo(print())
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
+//                .andExpect(MockMvcResultMatchers.jsonPath("total", is(2)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("success", is(true)))
+//                .andExpect(MockMvcResultMatchers.jsonPath("rows[0].roleId", is(1)));
+//    }
 
 //    @Test
 //    public void testSubmitRole() throws Exception {

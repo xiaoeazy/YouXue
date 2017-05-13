@@ -29,7 +29,7 @@ import com.huan.ted.function.service.IResourceService;
 /**
  * 对资源的操作.
  * 
- * @author xiawang.liu@hand-china.com
+ * @author huanghuan
  */
 
 @Controller

@@ -13,8 +13,6 @@ import java.util.Map;
 import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 
-import com.huan.ted.message.components.DefaultPromptListener;
-import com.huan.ted.system.dto.Prompt;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,13 +33,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.huan.ted.cache.Cache;
 import com.huan.ted.cache.CacheManager;
 import com.huan.ted.cache.impl.HashStringRedisCache;
+import com.huan.ted.cache.impl.SysCodeCache;
 //import com.huan.ted.cache.impl.SysCodeCache;
 import com.huan.ted.core.ILanguageProvider;
 import com.huan.ted.core.IRequest;
 import com.huan.ted.core.impl.DefaultTlTableNameProvider;
+import com.huan.ted.message.components.DefaultPromptListener;
+import com.huan.ted.system.dto.Code;
 //import com.huan.ted.system.dto.Code;
 import com.huan.ted.system.dto.DTOClassInfo;
 import com.huan.ted.system.dto.Language;
+import com.huan.ted.system.dto.Prompt;
 import com.huan.ted.system.dto.ResponseData;
 import com.huan.ted.system.mapper.MultiLanguageMapper;
 //import com.huan.ted.system.service.IProfileService;
@@ -49,8 +51,7 @@ import com.huan.ted.system.mapper.MultiLanguageMapper;
 /**
  * 通用的 Controller,用来获取公共数据.
  *
- * @author shengyang.zhou@hand-china.com
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  */
 @RestController
 public class CommonController extends BaseController {
@@ -118,31 +119,27 @@ public class CommonController extends BaseController {
         Cache<?> cache = cacheManager.getCache(resource);
         String var = params.get("var");
         StringBuilder sb = new StringBuilder();
-//        if (cache instanceof SysCodeCache) {
-//            params.forEach((k, v) -> {
-//                Code code = ((SysCodeCache) cache).getValue(v + "." + lang);
-//                try {
-//                    if (code == null) {
-//                        toJson(sb, k, Collections.EMPTY_LIST);
-//                    } else {
-//                        toJson(sb, k, code.getCodeValues());
-//                    }
-//                    sb.append("\n");
-//                } catch (JsonProcessingException e) {
-//                    if (logger.isErrorEnabled()) {
-//                        logger.error(e.getMessage(), e);
-//                    }
-//                }
-//            });
-//        } else if (cache instanceof HashStringRedisCache) {
-//            List<?> data = ((HashStringRedisCache<?>) cache).getAll();
-//            toJson(sb, var, data);
-//        }
-        
-        if (cache instanceof HashStringRedisCache) {
-	          List<?> data = ((HashStringRedisCache<?>) cache).getAll();
-	          toJson(sb, var, data);
+        if (cache instanceof SysCodeCache) {
+            params.forEach((k, v) -> {
+                Code code = ((SysCodeCache) cache).getValue(v + "." + lang);
+                try {
+                    if (code == null) {
+                        toJson(sb, k, Collections.EMPTY_LIST);
+                    } else {
+                        toJson(sb, k, code.getCodeValues());
+                    }
+                    sb.append("\n");
+                } catch (JsonProcessingException e) {
+                    if (logger.isErrorEnabled()) {
+                        logger.error(e.getMessage(), e);
+                    }
+                }
+            });
+        } else if (cache instanceof HashStringRedisCache) {
+            List<?> data = ((HashStringRedisCache<?>) cache).getAll();
+            toJson(sb, var, data);
         }
+        
         return sb.toString();
     }
 
@@ -162,15 +159,15 @@ public class CommonController extends BaseController {
     @RequestMapping(value = "/common/code/{code}/", produces = "application/javascript;charset=utf8")
     @ResponseBody
     public String getCommonCode(@PathVariable String code, HttpServletRequest request) throws JsonProcessingException {
-//        Locale locale = RequestContextUtils.getLocale(request);
-//        SysCodeCache codeCache = (SysCodeCache) (Cache) cacheManager.getCache("code");
-//        Code code2 = codeCache.getValue(code + "." + locale);
-//
-//        if (code2 == null || code2.getCodeValues() == null) {
-//            return "[]";
-//        }
+        Locale locale = RequestContextUtils.getLocale(request);
+        SysCodeCache codeCache = (SysCodeCache) (Cache) cacheManager.getCache("code");
+        Code code2 = codeCache.getValue(code + "." + locale);
+
+        if (code2 == null || code2.getCodeValues() == null) {
+            return "[]";
+        }
         StringBuilder sb = new StringBuilder();
-//        toJson(sb, null, code2.getCodeValues());
+        toJson(sb, null, code2.getCodeValues());
         return sb.toString();
     }
 

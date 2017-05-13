@@ -6,7 +6,7 @@ package com.huan.ted.attachment.exception;
 import com.huan.ted.core.exception.BaseException;
 
 /**
- * @author hua.xiao@hand-china.com
+ * @author huanghuan
  *
  *         2016年3月03日
  */

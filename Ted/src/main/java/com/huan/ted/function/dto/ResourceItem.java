@@ -17,7 +17,7 @@ import com.huan.ted.system.dto.BaseDTO;
 /**
  * 资源权限项.
  * 
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年4月7日
  */

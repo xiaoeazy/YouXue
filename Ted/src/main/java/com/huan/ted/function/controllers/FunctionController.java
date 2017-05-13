@@ -26,9 +26,7 @@ import com.huan.ted.function.service.IFunctionService;
 /**
  * 功能的controller.
  * 
- * @author wuyichu
- * @author njq.niu@hand-china.com
- * @author xiawang.liu@hand-china.com
+ * @author huanghuan
  */
 @Controller
 @RequestMapping(value = "/sys/function")

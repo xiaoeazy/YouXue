@@ -6,11 +6,23 @@
 		var viewModel = kendo.observable({
 	        model: {},
 	        createFunction: function(){
-	             editData();
+	             editData(0);
 	        },
-	        saveFunction: function(){
+	        editFunction: function(){
+	        	 var checked = grid.selectedDataItems();
+	        	 if(grid.selectedDataItems().length==1){
+	        		 var id = checked[0].id;
+	        		 editData(id);
+	        	 }else{
+	        		 kendo.ui.showErrorDialog({
+	 		        	title:$l('hap.tip.info'),
+	 		        	message: '请选择单个在编辑'
+	 		        })
+	        	 }
+	        },
+	        /* saveFunction: function(){
 	            $('#grid').data('kendoGrid').saveChanges();
-	        },
+	        }, */
 	        queryFunction: function (e) {
 	            $('#grid').data('kendoGrid').dataSource.page(1);
 	        }
@@ -43,13 +55,13 @@
 	<div id="page-content">
 		<div class="pull-left" id="toolbar-btn" style="padding-bottom:10px;">
 	        <span class="btn btn-primary k-grid-add" style="float:left;margin-right:5px;" data-bind="click:createFunction"><@spring.message "hap.new"/></span>
-	        <span class="btn btn-success k-grid-save-changes"  style="float:left;margin-right:5px;" data-bind="click:saveFunction"><@spring.message "hap.save"/></span>
+	        <span class="btn btn-success k-grid-save-changes"  style="float:left;margin-right:5px;" data-bind="click:editFunction"><@spring.message "hap.edit"/></span>
 	        <span onclick="deleteData()" class="btn btn-danger" style="float:left;"><@spring.message "hap.delete"/></span>
 	    </div>
 
 	    <div class="pull-right" id="query-form" style="padding-bottom:10px;">
-	        <input data-role="maskedtextbox" placeholder='<@spring.message "employee.employeeCode"/>' type="text" style="float:left;width:150px;margin-right:5px;" data-bind="value:model.employeeCode" class="k-textbox">
-	        <input data-role="maskedtextbox" placeholder='<@spring.message "employee.name"/>' type="text" style="width: 150px;float:left;margin-right:5px;" data-bind="value:model.name" class="k-textbox">
+	        <input data-role="maskedtextbox" placeholder='项目名称' type="text" style="float:left;width:150px;margin-right:5px;" data-bind="value:model.projectname" class="k-textbox">
+	        <input data-role="maskedtextbox" placeholder='项目简介' type="text" style="width: 150px;float:left;margin-right:5px;" data-bind="value:model.projectIntro" class="k-textbox">
 	        <span class="btn btn-primary" style="float:left;width:70px" data-bind="click:queryFunction" type="submit"><@spring.message "hap.query"/></span>
 	        <div style="clear:both"></div>
 	    </div>
@@ -114,7 +126,7 @@
                 model : {
                     id    : "id",
                     fields: {
-                    	/* enabledFlag:{defaultValue: 'Y',type: 'boolean',checkedValue:'Y',uncheckedValue:'N'},
+                    	/*enabledFlag:{defaultValue: 'Y',type: 'boolean',checkedValue:'Y',uncheckedValue:'N'},
                        	employeeCode : {type: "string"},
                         name : {type: "string"},
                         bornDate: {type : "date"},
@@ -126,9 +138,12 @@
             }
             
         });
-
-        window.editData = function(){
+    	
+        window.editData = function(id){
 	    	 var url = 'project_edit.html';
+	    	 if(id!=0){
+	    		 var url = 'project_edit.html?id='+id;
+	    	 }
 	         var dialog =  $("#dialog").kendoWindow({
              	actions: [ "Maximize", "Minimize", "Close"],
                 width: 900,
@@ -145,42 +160,7 @@
              dialog.center().open();
 	    };
 
-        editFunctionResources = function (employeeId) {
-	        var dialog = $("#dialog").kendoWindow({
-	            actions: ["Close"],
-	            width  : 900,
-	            height : 500,
-	            title  : '<@spring.message "hap.edit"/>',
-	            visible: false,
-	            iframe : true,
-	            modal  : true,
-	            content: 'employee_edit.html?employeeId=' + employeeId,
-	            close:function(e){
-	            	$("#grid").data("kendoGrid").dataSource.page(1);
-	            }
-	        }).data("kendoWindow");
-	        dialog.center().open();
-	    };
-	    
-	    
-	    assignPosition = function (employeeId) {
-	        var assignDialog = $("#assign-dialog").kendoWindow({
-	            actions: ["Close"],
-	            width  : 900,
-	            height : 400, 
-	            title  : '<@spring.message "employee.positionallocation"/>',
-	            visible: false,
-	            iframe : true,
-	            modal  : true,
-	            content: 'employee_assign.html?employeeId=' + employeeId,
-	            close: function(e){
-	            	$("#grid").data("kendoGrid").dataSource.page(1);
-	            }
-	        }).data("kendoWindow");
-	        assignDialog.center().open();
-	    };
-
-
+        
 	    var grid = $("#grid").kendoGrid({
 	        dataSource : dataSource,
 	        navigatable: false,
@@ -194,7 +174,13 @@
 	            buttonCount: 5
 	        },
 	        sortable: true,
-	        columns    : [ {
+	        columns    : [{
+                field: "",
+                title: "序号",
+                template: "<span class='row-number'></span>",
+                width:20
+            },
+            {
                 field: "projectname",
                 title: '项目名称',
                 width: 80
@@ -226,7 +212,7 @@
                 title: '项目地点',
                 width: 80
             },
-            {
+            /* {
                 field: "thumbnail",
                 title: 'thumbnail',
                 width: 80
@@ -237,16 +223,25 @@
                 width: 80
             },
             {
+                field: "projectContent",
+                title: '项目内容',
+                width: 80
+            }*/
+            {
                 field: "projectIntro",
                 title: '项目介绍',
                 width: 80
             },
-            {
-                field: "projectContent",
-                title: '项目地点',
-                width: 80
-            }],
-	        editable   : true
+           ],
+           dataBound: function () {
+               var rows = this.items();
+               $(rows).each(function () {
+                   var index = $(this).index() + 1;
+                   var rowLabel = $(this).find(".row-number");
+                   $(rowLabel).html(index);
+               });
+           },
+	       editable   : false
 	    }).data("kendoGrid");
 
 

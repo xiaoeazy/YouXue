@@ -29,8 +29,7 @@ import com.huan.ted.function.dto.MenuItem;
 /**
  * 功能分配controller.
  * 
- * @author liuxiawang
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  */
 @Controller
 @RequestMapping(value = "/sys/rolefunction")

@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * 
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年4月8日
  */

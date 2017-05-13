@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.huan.ted.function.mapper.RoleFunctionMapper;
 
 /**
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年1月27日
  */

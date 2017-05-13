@@ -108,6 +108,11 @@
         <property name="name" value="api"/>
     </bean>
 
+	<bean id="codeCache" class="com.huan.ted.cache.impl.SysCodeCache">
+        <property name="name" value="code"/>
+    </bean>
+	
+
     <bean id="cacheManager" class="com.huan.ted.cache.impl.CacheManagerImpl">
         <property name="caches">
             <list>
@@ -116,7 +121,7 @@
                 <ref bean="functionCache"/>
                 <ref bean="roleFunctionCache"/>
                 <ref bean="roleResourceCache"/>
-                
+                 <ref bean="codeCache"/>
                 
                 <bean class="com.huan.ted.cache.impl.RedisCache">
                     <property name="name" value="resource_url"/>

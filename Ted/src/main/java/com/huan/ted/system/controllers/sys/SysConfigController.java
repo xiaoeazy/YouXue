@@ -38,7 +38,7 @@ import com.huan.ted.system.service.ISysConfigService;
 /**
  * ConfigController.
  * 
- * @author hailin.xu@hand-china.com
+ * @author huanghuan
  */
 @Controller
 public class SysConfigController extends BaseController {

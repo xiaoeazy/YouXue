@@ -2,8 +2,6 @@
  * @summary Hap
  * @description 抽象通用函数
  * @version 2.0
- * @author njq.niu@hand-china.com
- * @author shengyang.zhou@hand-china.com
  * @copyright Copyright Hand China Co.,Ltd.
  *
  */

@@ -559,7 +559,7 @@ $.extend(true, kendo.ui.Validator.prototype.options.messages,{
 });
 }
 
-/* TabStrip messages  */ //add by njq.niu@hand-china.com
+/* TabStrip messages  */ 
 if (kendo.ui.TabStrip) {
     kendo.ui.TabStrip.prototype.options.messages =
     $.extend(true, kendo.ui.TabStrip.prototype.options.messages,{
@@ -570,7 +570,7 @@ if (kendo.ui.TabStrip) {
     });
 }
 
-/* TabStrip messages  */ //add by njq.niu@hand-china.com
+/* TabStrip messages  */ 
 if (kendo.ui.Dialog) {
     kendo.ui.Dialog.prototype.options.messages =
     $.extend(true, kendo.ui.Dialog.prototype.options.messages,{
@@ -581,7 +581,7 @@ if (kendo.ui.Dialog) {
 }
 
 
-/* Widget messages */ //add by njq.niu@hand-china.com
+/* Widget messages */ 
 if (kendo.ui.Widget) {
     kendo.ui.Widget.prototype.options.messages =
     $.extend(true, kendo.ui.Widget.prototype.options.messages,{
@@ -590,7 +590,7 @@ if (kendo.ui.Widget) {
     });
 }
 
-/* TLEdit messages */ //add by njq.niu@hand-china.com
+/* TLEdit messages */ 
 if (kendo.ui.TLEdit) {
     kendo.ui.TLEdit.prototype.options.messages =
     $.extend(true, kendo.ui.TLEdit.prototype.options.messages,{
@@ -599,7 +599,7 @@ if (kendo.ui.TLEdit) {
 }
 
 
-/* QueryPanel messages */ //add by hailin.xu@hand-china.com
+/* QueryPanel messages */ 
 if (kendo.ui.QueryPanel) {
 	kendo.ui.QueryPanel.prototype.options.messages =
 	 $.extend(true, kendo.ui.QueryPanel.prototype.options.messages,{

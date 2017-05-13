@@ -19,8 +19,7 @@ import com.huan.ted.core.IRequest;
 import com.huan.ted.function.mapper.RoleFunctionMapper;
 
 /**
- * @author liuxiawang
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  */
 @Transactional
 @Service

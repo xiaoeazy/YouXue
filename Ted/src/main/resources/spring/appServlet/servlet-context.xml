@@ -45,6 +45,7 @@
 
     <bean id="validator" class="com.huan.ted.core.validator.ComplexCommonValidator"/>
 
+	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
     <mvc:resources mapping="/lib/**" location="/lib/" />
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:resources mapping="/editor-app/**" location="/resources/editor-app/" />

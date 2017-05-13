@@ -13,7 +13,7 @@ import com.huan.ted.function.dto.ResourceItem;
 import com.huan.ted.system.service.IBaseService;
 
 /**
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年4月7日
  */

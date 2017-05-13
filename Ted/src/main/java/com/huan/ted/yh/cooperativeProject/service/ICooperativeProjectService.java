@@ -8,7 +8,7 @@ import com.huan.ted.system.service.IBaseService;
 import com.huan.ted.yh.cooperativeProject.dto.Project;
 
 /**
- * @author yuliao.chen@hand-china.com
+ * @author huanghuan
  */
 public interface ICooperativeProjectService extends IBaseService<Project>,ProxySelf<ICooperativeProjectService>{
 	

@@ -12,7 +12,7 @@ import com.huan.ted.system.dto.Prompt;
 import com.huan.ted.system.service.IPromptService;
 
 /**
- * @author shengyang.zhou@hand-china.com
+ * @author huanghuan
  */
 @Service
 public class PromptServiceImpl extends BaseServiceImpl<Prompt> implements IPromptService {

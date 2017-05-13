@@ -12,8 +12,7 @@ import com.huan.ted.function.dto.RoleFunction;
 import com.huan.ted.system.service.IBaseService;
 
 /**
- * @author liuxiawang
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  */
 public interface IRoleFunctionService extends IBaseService<RoleFunction>, ProxySelf<IRoleFunctionService> {
 

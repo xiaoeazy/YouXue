@@ -27,7 +27,7 @@ import com.huan.ted.system.service.IPromptService;
 /**
  * PromptController.
  * 
- * @author shengyang.zhou@hand-china.com
+ * @author huanghuan
  */
 @Controller
 public class PromptController extends BaseController {

@@ -5,7 +5,7 @@ package com.huan.ted.function.dto;
 
 /**
  * 
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年4月8日
  */

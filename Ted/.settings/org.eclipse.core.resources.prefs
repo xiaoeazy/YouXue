@@ -5,5 +5,6 @@ encoding//src/main/webapp/WEB-INF/view/sys/sys_config.html=UTF-8
 encoding//src/main/webapp/WEB-INF/view/sys/sys_prompt.html=UTF-8
 encoding//src/main/webapp/WEB-INF/view/yh/cooperativeProject/project.html=UTF-8
 encoding//src/main/webapp/WEB-INF/view/yh/cooperativeProject/project_edit.html=UTF-8
+encoding//src/main/webapp/lib/kendoui/styles/kendo.hap.css=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

@@ -4,8 +4,7 @@
 
 package com.huan.ted.account.controllers;
 
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anyObject;
+
 
 import java.util.List;
 
@@ -27,6 +26,7 @@ import com.huan.ted.core.IRequest;
 import com.huan.ted.core.exception.BaseException;
 import com.huan.ted.system.controllers.BaseController;
 import com.huan.ted.system.dto.ResponseData;
+
 
 /**
  * 角色控制器.
@@ -57,7 +57,6 @@ public class RoleController extends BaseController {
     public ResponseData getRoleNotUserRoles(HttpServletRequest request, User user,
                                             @RequestParam(defaultValue = DEFAULT_PAGE) int page,
                                             @RequestParam(defaultValue = DEFAULT_PAGE_SIZE) int pagesize) {
-    	roleService.select(anyObject(),anyObject(),anyInt(),anyInt());
         IRequest requestContext = createRequestContext(request);
         return new ResponseData(roleService.selectRoleNotUserRoles(requestContext, user, page, pagesize));
     }

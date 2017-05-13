@@ -19,7 +19,7 @@ import com.huan.ted.function.service.IResourceItemService;
 import com.huan.ted.system.service.impl.BaseServiceImpl;
 
 /**
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  * 2016年4月7日
  * 

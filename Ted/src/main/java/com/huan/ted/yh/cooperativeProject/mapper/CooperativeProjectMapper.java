@@ -6,7 +6,7 @@ import com.huan.ted.mybatis.common.Mapper;
 import com.huan.ted.yh.cooperativeProject.dto.Project;
 
 /**
- * @author yuliao.chen@hand-china.com
+ * @author huanghuan
  */
 public interface CooperativeProjectMapper extends Mapper<Project>{
    

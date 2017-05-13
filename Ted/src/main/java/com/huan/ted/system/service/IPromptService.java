@@ -7,7 +7,7 @@ import com.huan.ted.core.ProxySelf;
 import com.huan.ted.system.dto.Prompt;
 
 /**
- * @author shengyang.zhou@hand-china.com
+ * @author huanghuan
  */
 public interface IPromptService extends IBaseService<Prompt>, ProxySelf<IPromptService> {
 

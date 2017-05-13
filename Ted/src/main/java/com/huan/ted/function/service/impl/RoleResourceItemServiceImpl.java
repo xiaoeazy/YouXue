@@ -19,7 +19,7 @@ import com.huan.ted.function.mapper.ResourceItemMapper;
 import com.huan.ted.function.mapper.RoleResourceItemMapper;
 
 /**
- * @author njq.niu@hand-china.com
+ * @author huanghuan
  *
  *         2016年4月7日
  *         TODO:缓存处理.

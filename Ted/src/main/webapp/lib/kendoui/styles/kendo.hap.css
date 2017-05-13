@@ -2239,7 +2239,7 @@ fieldset:not ([disabled] ) .has-error .form-radio.form-normal:not (.disabled
 /*! Toggle Switch - v1.0 */
 /*! A trowel component to display a switch */
 /*! https://github.com/Trowel/switch/*!  */
-/*! designed by Clément Menant (https://www.behance.net/clementmenant) and Loïc Goyet (https://twitter.com/earvinpepper) for AppVentus (http://appventus.com/) */
+/*! designed by Cl茅ment Menant (https://www.behance.net/clementmenant) and Lo茂c Goyet (https://twitter.com/earvinpepper) for AppVentus (http://appventus.com/) */
 /*! Under MIT License */
 /*! ========================================================================*/
 /*! IMPROVEMENT BY THEMEON.NET */
@@ -4724,7 +4724,7 @@ blockquote {
     margin: 0
 }
 
-/* njq.niu@hand-china.com
+/*
 
 .panel-body>.row>[class^="col-"]:first-child, .panel-body>[class^="form-"]>.row>[class^="col-"]:first-child
     {
@@ -5526,7 +5526,6 @@ a.disabled-link, a.disabled-link:visited, a.disabled-link:active, a.disabled-lin
 
 
 
-/** ------------------- add by njq.niu@hand-china.com -------------------  **/
 
 .content-container {
     position: relative;
@@ -5573,7 +5572,7 @@ a.disabled-link, a.disabled-link:visited, a.disabled-link:active, a.disabled-lin
 .k-dialog-confirm >.modal-body .fa {
     color:#9e9e9e;
 }
-/** kendo的bootstrap样式将k-widget下的所有元素设置成了content-box导致栅格布局有问题 **/
+/** kendo鐨刡ootstrap鏍峰紡灏唊-widget涓嬬殑鎵�鏈夊厓绱犺缃垚浜哻ontent-box瀵艰嚧鏍呮牸甯冨眬鏈夐棶棰� **/
 .panel * {
     box-sizing:border-box;
 }
@@ -5603,7 +5602,7 @@ a.disabled-link, a.disabled-link:visited, a.disabled-link:active, a.disabled-lin
 }
 
 
-/** -- Grid -- TODO:修改LESS文件**/
+/** -- Grid -- TODO:淇敼LESS鏂囦欢**/
 .k-filter-row th, .k-grid-header th.k-header {
     padding:8px;
     font-size: 1.05em;
@@ -5658,7 +5657,7 @@ a.disabled-link, a.disabled-link:visited, a.disabled-link:active, a.disabled-lin
 }
 
 
-/*调整样式*/
+/*璋冩暣鏍峰紡*/
 /* .k-grid.k-widget, .k-grid-pager {
     -webkit-box-shadow: none;
     box-shadow: none;

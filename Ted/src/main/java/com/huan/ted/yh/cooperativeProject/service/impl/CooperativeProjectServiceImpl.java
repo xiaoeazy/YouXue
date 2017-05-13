@@ -14,7 +14,7 @@ import com.huan.ted.yh.cooperativeProject.mapper.CooperativeProjectMapper;
 import com.huan.ted.yh.cooperativeProject.service.ICooperativeProjectService;
 
 /**
- * @author yuliao.chen@hand-china.com
+ * @author huanghuan
  */
 @Service
 public class CooperativeProjectServiceImpl extends BaseServiceImpl<Project> implements ICooperativeProjectService {
